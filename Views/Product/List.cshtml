@@ -3,18 +3,7 @@
 <div class="row">
     @foreach (var p in Model.Products)
     {
-
-        <div class="col-sm-4">
-            <h4>
-                @p.Name
-                <span class="badge" style="float:right;">
-                    <small style="color: white; font-weight: bold">
-                        @p.Price.ToString("c")
-                    </small>
-                </span>
-            </h4>
-            <div class="card-text p-1">@p.Description</div>
-        </div>
+        @Html.Partial("ProductSummary", p)
     }
 </div>
 
@@ -25,7 +14,7 @@
          page-classes-enabled="true"
          page-class="btn"
          page-class-normal="btn-default"
-         page-class-selected="btn-ifo"
+         page-class-selected="btn-primary" page-url-category="@Model.CurrentCategory" 
          class="btn-group pull-right m-1">
 
     </div>

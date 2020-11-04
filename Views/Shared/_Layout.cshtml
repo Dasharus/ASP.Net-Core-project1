@@ -16,9 +16,11 @@
     </div>
     <div class="container">
         <div class="row">
-            Put something useful here later
+            <div id="categories" class="col-3">
+                @await Component.InvokeAsync("NavigationMenu")
+                </div>
+            </div>
+            @RenderBody()
         </div>
-        @RenderBody()
-    </div>
 </body>
 </html>
