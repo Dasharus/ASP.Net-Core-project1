@@ -36,6 +36,8 @@ namespace greystore
             services.AddTransient<IProductRepository, EFProductRepository>();
             services.AddMvc();
             services.AddMvc(option => option.EnableEndpointRouting = false);
+            services.AddMemoryCache();
+            services.AddSession();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -44,6 +46,7 @@ namespace greystore
             app.UseDeveloperExceptionPage();
             app.UseStatusCodePages();
             app.UseStaticFiles();
+            app.UseSession();
             app.UseAuthentication();
             app.UseMvc(routes => {
 
